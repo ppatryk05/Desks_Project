@@ -1,17 +1,317 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rezerwacja biurka w biurze</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Rezerwacja biurka w biurze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      min-height: 100vh;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #222;
+      margin: 32px 0 16px 0;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    input {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 16px;
+      width: 220px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    #office-container {
+      width: 90vw;
+      max-width: 1200px;
+      height: 80vh;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      padding: 32px 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #office-container svg {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .desk {
+      --desk-fill: #bfbfbf;
+      --desk-stroke: #000000;
+      cursor: default;
+    }
+
+    .desk use {
+      fill: var(--desk-fill);
+      stroke: var(--desk-stroke);
+      transition: fill 0.25s ease, stroke 0.25s ease;
+    }
+
+    .available {
+      --desk-fill: hsl(152, 76%, 80%);
+      --desk-stroke: #000000;
+      cursor: pointer;
+    }
+
+    .busy {
+      --desk-fill: #fca5a5;
+      --desk-stroke: #000000;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .selected {
+      --desk-fill: #93c5fd;
+      --desk-stroke: #1e40af;
+    }
+
+    .available:hover {
+      --desk-fill: #93c5fd;
+      --desk-stroke: #17158a;
+    }
+
+    .desk-label {
+      font-size: 50px !important;
+      fill: #000 !important;
+      font-weight: 1000 !important;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
-    <h1>Rezerwacja biurka w biurze</h1>
-    <p>Wybrane biurko: <input type="text" id="selectedDesk" readonly></p>
+  <h1>Rezerwacja biurka w biurze</h1>
+  <p>Wybrane biurko: <input type="text" id="selectedDesk" readonly></p>
 
-    <div id="office-container"></div>
+  <div id="office-container">
+  <svg
+   width="80mm"
+   height="130mm"
+   viewBox="-1 60 3500 1200"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
 
-    <script src="script.js"></script>
+
+<defs>
+  <g id="DeskModule3" transform="scale(5.5)">
+    <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6-6" width="6.5134573" height="9.9780617" x="-24.837563" y="55.426067" transform="scale(-1,1)" />
+      
+    <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1-8" cx="-17.908356" cy="60.207226" rx="2.3559313" ry="3.9496496" transform="scale(-1,1)" />
+      
+    <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4-5" width="15.599671" height="24.191893" x="-37.279972" y="48.200867" ry="3.7787075" transform="scale(-1,1)" />
+  </g>
+  <g id="DeskModule4" transform="scale(5.5)">
+      <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6-3" width="6.5134573" height="9.9780617" x="50.955658" y="55.43895" />
+      <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1-3" cx="57.884865" cy="60.220108" rx="2.3559313" ry="3.9496496" />
+      <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4-4" width="15.599671" height="24.191893" x="38.374668" y="48.108162" ry="3.7787075" />
+     </g>
+  <g id="DeskModule1" transform="scale(5.5)">
+    <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6" width="6.5134573" height="9.9780617" x="-24.625696" y="-39.878876" transform="scale(-1)" />
+      <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1" cx="-17.696487" cy="-35.097717" rx="2.3559313" ry="3.9496496" transform="scale(-1)" />
+      <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4" width="15.599671" height="24.191893" x="-37.254585" y="-47.225647" ry="3.7787075" transform="scale(-1)" />
+     </g>
+  <g id="DeskModule2" transform="scale(5.5)">
+    <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15" width="6.5134573" height="9.9780617" x="50.976902" y="30.465736" />
+      <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16" cx="57.906113" cy="35.246891" rx="2.3559313" ry="3.9496496" />
+      <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23" width="15.599671" height="24.191893" x="38.291969" y="22.888128" ry="3.7787075" />
+     </g>
+</defs>
+
+
+<g id="desk_1" class="desk">
+  <use href="#DeskModule1" x="100" y="-100" />
+  <text class="desk-label" x="261" y="98">1</text>
+</g>
+
+<g id="desk_2" class="desk">
+  <use href="#DeskModule2" x="100" y="-100" />
+  <text class="desk-label" x="355" y="98">2</text>
+</g>
+
+<g id="desk_3" class="desk">
+  <use href="#DeskModule3" x="100" y="-100" />
+  <text class="desk-label" x="261" y="236">3</text>
+</g>
+
+<g id="desk_4" class="desk">
+  <use href="#DeskModule4" x="100" y="-100" />
+  <text class="desk-label" x="355" y="236">4</text>
+</g>
+
+
+
+
+<g id="desk_5" class="desk">
+  <use href="#DeskModule1" x="400" y="-100" />
+  <text class="desk-label" x="561" y="98">5</text>
+</g>
+
+<g id="desk_6" class="desk">
+  <use href="#DeskModule2" x="400" y="-100" />
+  <text class="desk-label" x="655" y="98">6</text>
+</g>
+
+<g id="desk_7" class="desk">
+  <use href="#DeskModule3" x="400" y="-100" />
+  <text class="desk-label" x="561" y="236">7</text>
+</g>
+
+<g id="desk_8" class="desk">
+  <use href="#DeskModule4" x="400" y="-100" />
+  <text class="desk-label" x="655" y="236">8</text>
+</g>
+
+  
+     
+
+</svg>
+
+
+  
+  </div>
+
+  <script>
+    const desks = [
+  { "id": 1, "name": "Desk 1", "Available": true },
+  { "id": 2, "name": "Desk 2", "Available": false },
+  { "id": 3, "name": "Desk 3", "Available": true },
+  { "id": 4, "name": "Desk 4", "Available": true },
+  { "id": 5, "name": "Desk 5", "Available": true },
+  { "id": 6, "name": "Desk 6", "Available": true },
+  { "id": 7, "name": "Desk 7", "Available": false },
+  { "id": 8, "name": "Desk 8", "Available": true },
+  { "id": 9, "name": "Desk 9", "Available": true },
+  { "id": 10, "name": "Desk 10", "Available": false },
+  { "id": 11, "name": "Desk 11", "Available": true },
+  { "id": 12, "name": "Desk 12", "Available": true },
+  { "id": 13, "name": "Desk 13", "Available": true },
+  { "id": 14, "name": "Desk 14", "Available": false },
+  { "id": 15, "name": "Desk 15", "Available": true },
+  { "id": 16, "name": "Desk 16", "Available": true },
+  { "id": 17, "name": "Desk 17", "Available": true },
+  { "id": 18, "name": "Desk 18", "Available": false },
+  { "id": 19, "name": "Desk 19", "Available": true },
+  { "id": 20, "name": "Desk 20", "Available": true },
+  { "id": 21, "name": "Desk 21", "Available": true },
+  { "id": 22, "name": "Desk 22", "Available": false },
+  { "id": 23, "name": "Desk 23", "Available": true },
+  { "id": 24, "name": "Desk 24", "Available": true },
+  { "id": 25, "name": "Desk 25", "Available": true },
+  { "id": 26, "name": "Desk 26", "Available": false },
+  { "id": 27, "name": "Desk 27", "Available": true },
+  { "id": 28, "name": "Desk 28", "Available": true },
+  { "id": 29, "name": "Desk 29", "Available": true },
+  { "id": 30, "name": "Desk 30", "Available": false },
+  { "id": 31, "name": "Desk 31", "Available": true },
+  { "id": 32, "name": "Desk 32", "Available": true },
+  { "id": 33, "name": "Desk 33", "Available": true },
+  { "id": 34, "name": "Desk 34", "Available": false },
+  { "id": 35, "name": "Desk 35", "Available": true },
+  { "id": 36, "name": "Desk 36", "Available": true },
+  { "id": 37, "name": "Desk 37", "Available": true },
+  { "id": 38, "name": "Desk 38", "Available": false },
+  { "id": 39, "name": "Desk 39", "Available": true },
+  { "id": 40, "name": "Desk 40", "Available": true },
+  { "id": 41, "name": "Desk 41", "Available": true },
+  { "id": 42, "name": "Desk 42", "Available": false },
+  { "id": 43, "name": "Desk 43", "Available": true },
+  { "id": 44, "name": "Desk 44", "Available": true },
+  { "id": 45, "name": "Desk 45", "Available": true },
+  { "id": 46, "name": "Desk 46", "Available": false },
+  { "id": 47, "name": "Desk 47", "Available": true },
+  { "id": 48, "name": "Desk 48", "Available": true },
+  { "id": 49, "name": "Desk 49", "Available": true },
+  { "id": 50, "name": "Desk 50", "Available": false },
+  { "id": 51, "name": "Desk 51", "Available": true },
+  { "id": 52, "name": "Desk 52", "Available": true },
+  { "id": 53, "name": "Desk 53", "Available": true },
+  { "id": 54, "name": "Desk 54", "Available": false },
+  { "id": 55, "name": "Desk 55", "Available": true },
+  { "id": 56, "name": "Desk 56", "Available": true },
+  { "id": 57, "name": "Desk 57", "Available": true },
+  { "id": 58, "name": "Desk 58", "Available": false },
+  { "id": 59, "name": "Desk 59", "Available": true },
+  { "id": 60, "name": "Desk 60", "Available": true },
+  { "id": 61, "name": "Desk 61", "Available": true },
+  { "id": 62, "name": "Desk 62", "Available": false },
+  { "id": 63, "name": "Desk 63", "Available": true },
+  { "id": 64, "name": "Desk 64", "Available": true },
+  { "id": 65, "name": "Desk 65", "Available": true },
+  { "id": 66, "name": "Desk 66", "Available": false },
+  { "id": 67, "name": "Desk 67", "Available": true },
+  { "id": 68, "name": "Desk 68", "Available": true },
+  { "id": 69, "name": "Desk 69", "Available": true },
+  { "id": 70, "name": "Desk 70", "Available": false },
+  { "id": 71, "name": "Desk 71", "Available": true },
+  { "id": 72, "name": "Desk 72", "Available": true },
+  { "id": 45, "name": "Desk 45", "Available": true },
+  { "id": 46, "name": "Desk 46", "Available": false },
+  { "id": 47, "name": "Desk 47", "Available": true },
+  { "id": 48, "name": "Desk 48", "Available": true },
+  { "id": 49, "name": "Desk 49", "Available": true }
+];
+
+
+    function initDesks() {
+      desks.forEach(desk => {
+        const el = document.getElementById(`desk_${desk.id}`);
+        if (!el) return;
+
+        el.classList.remove("available", "busy", "selected");
+
+        if (desk.Available) {
+          el.classList.add("available");
+          el.addEventListener("click", () => selectDesk(desk));
+        } else {
+          el.classList.add("busy");
+        }
+
+        if (desk.Selected) {
+          el.classList.add("selected");
+          document.getElementById("selectedDesk").value = desk.id;
+        }
+      });
+    }
+
+    function selectDesk(desk) {
+      document.querySelectorAll("g.selected").forEach(d => d.classList.remove("selected"));
+      const el = document.getElementById(`desk_${desk.id}`);
+      if (el) {
+        el.classList.add("selected");
+        document.getElementById("selectedDesk").value = desk.id;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", initDesks);
+  </script>
 </body>
 </html>
