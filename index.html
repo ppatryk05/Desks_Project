@@ -4,117 +4,30 @@
   <meta charset="UTF-8" />
   <title>Rezerwacja biurka w biurze</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e5e7eb;
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      min-height: 100vh;
-      box-sizing: border-box;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      color: #222;
-      margin: 32px 0 16px 0;
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-
-    input {
-      margin-top: 10px;
-      padding: 8px;
-      font-size: 16px;
-      width: 220px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    }
-
-    #office-container {
-      width: 90vw;
-      max-width: 1200px;
-      height: 80vh;
-      margin: 40px auto;
-      background-color: #fff;
-      border-radius: 32px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      padding: 32px 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    #office-container svg {
-      width: 100%;
-      height: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .desk {
-      --desk-fill: #bfbfbf;
-      --desk-stroke: #000000;
-      cursor: default;
-    }
-
-    .desk use {
-      fill: var(--desk-fill);
-      stroke: var(--desk-stroke);
-      transition: fill 0.25s ease, stroke 0.25s ease;
-    }
-
-    .available {
-      --desk-fill: hsl(152, 76%, 80%);
-      --desk-stroke: #000000;
-      cursor: pointer;
-    }
-
-    .busy {
-      --desk-fill: #fca5a5;
-      --desk-stroke: #000000;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    .selected {
-      --desk-fill: #93c5fd;
-      --desk-stroke: #1e40af;
-    }
-
-    .available:hover {
-      --desk-fill: #93c5fd;
-      --desk-stroke: #17158a;
-    }
-
-    .desk-label {
-      font-size: 50px !important;
-      fill: #000 !important;
-      font-weight: 1000 !important;
-      text-anchor: middle;
-      dominant-baseline: middle;
-      pointer-events: none;
-      user-select: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Rezerwacja biurka w biurze</h1>
-  <p>Wybrane biurko: <input type="text" id="selectedDesk" readonly></p>
+  <header class="booking-header">
+    <div class="booking-title">
+      <p class="eyebrow">Panel rezerwacji</p>
+      <h1>Rezerwacja biurka w biurze</h1>
+      <p class="subtitle">Kliknij na planie biura, aby wybrać miejsce i natychmiast podejrzeć szczegóły rezerwacji.</p>
+    </div>
+    <div class="selection-card">
+      <label for="selectedDesk">Wybrane biurko</label>
+      <div class="selection-input">
+        <input type="text" id="selectedDesk" placeholder="Brak wyboru" readonly />
+      </div>
+      <p class="card-hint">Wskaż dowolne biurko na mapie, aby wstawić jego numer w okienku podglądu.</p>
+    </div>
+  </header>
 
   <div id="office-container">
   <svg
-   width="80mm"
-   height="130mm"
-   viewBox="-1 60 3500 1200"
+   width="100%"
+   height="100%"
+   viewBox="-1 -400 4800 1600"
+   preserveAspectRatio="xMidYMid meet"
    version="1.1"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
@@ -122,75 +35,540 @@
 
 
 <defs>
-  <g id="DeskModule3" transform="scale(5.5)">
-    <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6-6" width="6.5134573" height="9.9780617" x="-24.837563" y="55.426067" transform="scale(-1,1)" />
-      
-    <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1-8" cx="-17.908356" cy="60.207226" rx="2.3559313" ry="3.9496496" transform="scale(-1,1)" />
-      
-    <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4-5" width="15.599671" height="24.191893" x="-37.279972" y="48.200867" ry="3.7787075" transform="scale(-1,1)" />
+ <g id="DeskModuleA" transform="scale(4.5)">
+    <rect style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6" width="6.5134573" height="9.9780617" x="-24.649356" y="-36.778876" transform="scale(-1)" />
+      <ellipse style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1" cx="-17.696487" cy="-31.797717" rx="2.3559313" ry="3.9496496" transform="scale(-1)" />
+      <rect style="fill-opacity:1;stroke-width:1.67212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4" width="15.599671" height="30.191893" x="-37.254585" y="-46.725647" ry="3.7787075" transform="scale(-1)" />
+     </g>
+  <g id="DeskModuleB" transform="scale(4.5)">
+    <rect style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15" width="6.5134573" height="9.9780617" x="50.976902" y="26.878876" />
+      <ellipse style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16" cx="57.906113" cy="31.797717" rx="2.3559313" ry="3.9496496" />
+      <rect style="fill-opacity:1;stroke-width:1.67212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23" width="15.599671" height="30.191893" x="38.291969" y="16.5" ry="3.7787075" />
+     </g>
+ 
+  <g id="DeskModuleC" transform="scale(4.5)">
+    <rect style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6-6" width="6.5134573" height="9.9780617" x="-24.837563" y="58.426067" transform="scale(-1,1)" />
+    <ellipse style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1-8" cx="-17.908356" cy="63.407226" rx="2.3559313" ry="3.9496496" transform="scale(-1,1)" />
+    <rect style="fill-opacity:1;stroke-width:1.67212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4-5" width="15.599671" height="30.191893" x="-37.279972" y="48.200867" ry="3.7787075" transform="scale(-1,1)" />
   </g>
-  <g id="DeskModule4" transform="scale(5.5)">
-      <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6-3" width="6.5134573" height="9.9780617" x="50.955658" y="55.43895" />
-      <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1-3" cx="57.884865" cy="60.220108" rx="2.3559313" ry="3.9496496" />
-      <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4-4" width="15.599671" height="24.191893" x="38.374668" y="48.108162" ry="3.7787075" />
+  <g id="DeskModuleD" transform="scale(4.5)">
+      <rect style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6-3" width="6.5134573" height="9.9780617" x="50.955658" y="58.426067" />
+      <ellipse style="fill-opacity:1;stroke-width:1.61178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1-3" cx="57.884865" cy="63.407226" rx="2.3559313" ry="3.9496496" />
+      <rect style="fill-opacity:1;stroke-width:1.67212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4-4" width="15.599671" height="30.191893" x="38.374668" y="48.200867" ry="3.7787075" />
      </g>
-  <g id="DeskModule1" transform="scale(5.5)">
-    <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15-6" width="6.5134573" height="9.9780617" x="-24.625696" y="-39.878876" transform="scale(-1)" />
-      <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16-1" cx="-17.696487" cy="-35.097717" rx="2.3559313" ry="3.9496496" transform="scale(-1)" />
-      <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23-4" width="15.599671" height="24.191893" x="-37.254585" y="-47.225647" ry="3.7787075" transform="scale(-1)" />
-     </g>
-  <g id="DeskModule2" transform="scale(5.5)">
-    <rect style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect15" width="6.5134573" height="9.9780617" x="50.976902" y="30.465736" />
-      <ellipse style="fill-opacity:1;stroke-width:1.11178;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="path16" cx="57.906113" cy="35.246891" rx="2.3559313" ry="3.9496496" />
-      <rect style="fill-opacity:1;stroke-width:1.17212;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:14.9;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" id="rect23" width="15.599671" height="24.191893" x="38.291969" y="22.888128" ry="3.7787075" />
-     </g>
+
+     
+  
+
+
+
+
 </defs>
 
+<g id="rooms-grid" transform="translate(200,82) scale(1.1)" >
+  
+  
+  <g id="room" fill="#e0e3e6" stroke="#4b5563" stroke-width="15" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+  <path id="room_A" d="M -200 -600 H 700 V -130 H 160 V 700 H 700 V 1150 H -200 Z" />
+    <text class="room-label" x="-34" y="308">A</text>
+  </g>
 
-<g id="desk_1" class="desk">
-  <use href="#DeskModule1" x="100" y="-100" />
-  <text class="desk-label" x="261" y="98">1</text>
+
+
+ <g id="rooms_inside" fill="#e0e3e6" stroke="#4b5563" stroke-width="10" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+  
+  <rect id="room_A" x="330" y="50" width="280" height="480"  />
+    <text class="room-label" x="449" y="308">B</text>
+
+    <rect id="room_right" x="610" y="50" width="130" height="240"  />
+    <text class="room-label" x="658" y="192">C</text>
+
+
+    <rect id="room_right" x="610" y="290" width="130" height="240"  />
+    <text class="room-label" x="658" y="428">D</text>
+
+
+    <rect id="room_right" x="740" y="50" width="260" height="240"  />
+    <text class="room-label" x="854" y="192">E</text>
+    
+    <rect id="room_right" x="740" y="290" width="260" height="240"  />
+    <text class="room-label" x="854" y="428">F</text>
+
+
+    <rect id="room_right" x="1000" y="50" width="270" height="240"  />
+    <text class="room-label" x="1113" y="192">G</text>
+
+    <rect id="room_right" x="1000" y="290" width="150" height="240"  />
+    <text class="room-label" x="1055" y="428">H</text>
+
+    <rect id="room_right" x="1270" y="50" width="270" height="240"  />
+    <text class="room-label" x="1396" y="192">I</text>
+
+    <rect id="room_right" x="1150" y="290" width="390" height="240"  />
+    <text class="room-label" x="1310" y="428">J</text>
+
+    <rect id="room_right" x="1540" y="50" width="320" height="480"  />
+    <text class="room-label" x="1678" y="308">K</text>
+
+
+    <rect id="room_right" x="2400" y="50" width="320" height="480"  />
+    <text class="room-label" x="2546" y="308">J</text>
+
+    <rect id="room_right" x="2720" y="50" width="130" height="240"  />
+    <text class="room-label" x="2772" y="192">L</text>
+
+    <rect id="room_right" x="2720" y="290" width="130" height="240"  />
+    <text class="room-label" x="2760" y="428">M</text>
+
+    <rect id="room_right" x="2850" y="50" width="130" height="240"  />
+    <text class="room-label" x="2893" y="192">N</text>
+
+    <rect id="room_right" x="2850" y="290" width="130" height="240"  />
+    <text class="room-label" x="2893" y="428">O</text>
+
+    <rect id="room_right" x="2980" y="50" width="260" height="480"  />
+    <text class="room-label" x="3095" y="308">P</text>
+
+
+    <rect id="room_right" x="3240" y="50" width="130" height="240"  />
+    <text class="room-label" x="3287" y="192">R</text>
+
+    <rect id="room_right" x="3240" y="290" width="130" height="240"  />
+    <text class="room-label" x="3287" y="428">S</text>
+
+    <rect id="room_right" x="3370" y="50" width="320" height="480"  />
+    <text class="room-label" x="3510" y="308">T</text>
+
+
+    <rect id="room_right" x="1610" y="697" width="220" height="408"  />
+    <text class="room-label" x="1702" y="908">R</text>
+
+    <rect id="room_right" x="2170" y="896" width="680" height="204"  />
+    <text class="room-label" x="2391" y="1018">W</text>
+
+    <rect id="room_right" x="2490" y="691" width="230" height="204"  />
+    <text class="room-label" x="2589" y="810">Z</text>
+
+    <rect id="room_right" x="2840" y="691" width="10" height="204"  />
+    
+    <rect id="room_right" fill="#787878" x="1830" y="1010" width="340" height="90"  />
+    <text class="entrance-label" x="1861" y="1073">ENTRANCE</text>
+
+   
+
+ </g>
+
 </g>
 
+
+<g id="desk-grid" transform="translate(1330,90) scale(1.13)" >
+
+  
+
+<g id="desk_1" class="desk">
+  <use href="#DeskModuleA" x="-300" y="-522" />
+  <text class="desk-label" x="-168" y="-376">A1</text>
+</g>5
+
 <g id="desk_2" class="desk">
-  <use href="#DeskModule2" x="100" y="-100" />
-  <text class="desk-label" x="355" y="98">2</text>
+  <use href="#DeskModuleB" x="-300" y="-522" />
+  <text class="desk-label" x="-92" y="-376">B2</text>
 </g>
 
 <g id="desk_3" class="desk">
-  <use href="#DeskModule3" x="100" y="-100" />
-  <text class="desk-label" x="261" y="236">3</text>
+  <use href="#DeskModuleC" x="-300" y="-522" />
+  <text class="desk-label" x="-168" y="-234">C3</text>
 </g>
 
 <g id="desk_4" class="desk">
-  <use href="#DeskModule4" x="100" y="-100" />
-  <text class="desk-label" x="355" y="236">4</text>
+  <use href="#DeskModuleD" x="-300" y="-522" />
+  <text class="desk-label" x="-92" y="-234">D4</text>
 </g>
 
 
 
 
 <g id="desk_5" class="desk">
-  <use href="#DeskModule1" x="400" y="-100" />
-  <text class="desk-label" x="561" y="98">5</text>
+  <use href="#DeskModuleA" x="0" y="-522" />
+  <text class="desk-label" x="132" y="-376">A5</text>
 </g>
 
 <g id="desk_6" class="desk">
-  <use href="#DeskModule2" x="400" y="-100" />
-  <text class="desk-label" x="655" y="98">6</text>
+  <use href="#DeskModuleB" x="0" y="-522" />
+  <text class="desk-label" x="208" y="-376">B6</text>
 </g>
 
 <g id="desk_7" class="desk">
-  <use href="#DeskModule3" x="400" y="-100" />
-  <text class="desk-label" x="561" y="236">7</text>
+  <use href="#DeskModuleC" x="0" y="-522" />
+  <text class="desk-label" x="132" y="-234">C7</text>
 </g>
 
 <g id="desk_8" class="desk">
-  <use href="#DeskModule4" x="400" y="-100" />
-  <text class="desk-label" x="655" y="236">8</text>
+  <use href="#DeskModuleD" x="0" y="-522" />
+  <text class="desk-label" x="208" y="-234">D8</text>
 </g>
 
-  
+
+
+<g id="desk_9" class="desk">
+  <use href="#DeskModuleA" x="300" y="-522" />
+  <text class="desk-label" x="432" y="-376">A9</text>
+</g>
+
+<g id="desk_10" class="desk">
+  <use href="#DeskModuleB" x="300" y="-522" />
+  <text class="desk-label" x="508" y="-376">B10</text>
+</g>
+
+<g id="desk_11" class="desk">
+  <use href="#DeskModuleC" x="300" y="-522" />
+  <text class="desk-label" x="432" y="-234">C11</text>
+</g>
+
+<g id="desk_12" class="desk">
+  <use href="#DeskModuleD" x="300" y="-522" />
+  <text class="desk-label" x="508" y="-234">D12</text>
+</g>
+
+
+
+<g id="desk_13" class="desk">
+  <use href="#DeskModuleA" x="600" y="-522" />
+  <text class="desk-label" x="732" y="-376">A13</text>
+</g>
+
+<g id="desk_14" class="desk">
+  <use href="#DeskModuleB" x="600" y="-522" />
+  <text class="desk-label" x="808" y="-376">B14</text>
+</g>
+
+<g id="desk_15" class="desk">
+  <use href="#DeskModuleC" x="600" y="-522" />
+  <text class="desk-label" x="732" y="-234">C15</text>
+</g>
+
+<g id="desk_16" class="desk">
+  <use href="#DeskModuleD" x="600" y="-522" />
+  <text class="desk-label" x="808" y="-234">D16</text>
+</g>
+
+
+
+<g id="desk_17" class="desk">
+  <use href="#DeskModuleA" x="900" y="-522" />
+  <text class="desk-label" x="1032" y="-376">A17</text>
+</g>
+
+<g id="desk_18" class="desk">
+  <use href="#DeskModuleB" x="900" y="-522" />
+  <text class="desk-label" x="1108" y="-376">B18</text>
+</g>
+
+<g id="desk_19" class="desk">
+  <use href="#DeskModuleC" x="900" y="-522" />
+  <text class="desk-label" x="1032" y="-234">C19</text>
+</g>
+
+<g id="desk_20" class="desk">
+  <use href="#DeskModuleD" x="900" y="-522" />
+  <text class="desk-label" x="1108" y="-234">D20</text>
+</g>
+
+
+
+
+<g id="desk_21" class="desk">
+  <use href="#DeskModuleA" x="1200" y="-522" />
+  <text class="desk-label" x="1332" y="-376">A21</text>
+</g>
+
+<g id="desk_22" class="desk">
+  <use href="#DeskModuleB" x="1200" y="-522" />
+  <text class="desk-label" x="1408" y="-376">B22</text>
+</g>
+
+<g id="desk_23" class="desk">
+  <use href="#DeskModuleC" x="1200" y="-522" />
+  <text class="desk-label" x="1332" y="-234">C23</text>
+</g>
+
+<g id="desk_24" class="desk">
+  <use href="#DeskModuleD" x="1200" y="-522" />
+  <text class="desk-label" x="1408" y="-234">D24</text>
+</g>
+
+
+
+<g id="desk_25" class="desk">
+  <use href="#DeskModuleA" x="1500" y="-522" />
+  <text class="desk-label" x="1632" y="-376">A25</text>
+</g>
+
+<g id="desk_26" class="desk">
+  <use href="#DeskModuleB" x="1500" y="-522" />
+  <text class="desk-label" x="1708" y="-376">B26</text>
+</g>
+
+<g id="desk_27" class="desk">
+  <use href="#DeskModuleC" x="1500" y="-522" />
+  <text class="desk-label" x="1632" y="-234">C27</text>
+</g>
+
+<g id="desk_28" class="desk">
+  <use href="#DeskModuleD" x="1500" y="-522" />
+  <text class="desk-label" x="1708" y="-234">D28</text>
+</g>
+
+
+
+<g id="desk_29" class="desk">
+  <use href="#DeskModuleA" x="1800" y="-522" />
+  <text class="desk-label" x="1932" y="-376">A29</text>
+</g>
+
+<g id="desk_30" class="desk">
+  <use href="#DeskModuleB" x="1800" y="-522" />
+  <text class="desk-label" x="2008" y="-376">B30</text>
+</g>
+
+<g id="desk_31" class="desk">
+  <use href="#DeskModuleC" x="1800" y="-522" />
+  <text class="desk-label" x="1932" y="-234">C31</text>
+</g>
+
+<g id="desk_32" class="desk">
+  <use href="#DeskModuleD" x="1800" y="-522" />
+  <text class="desk-label" x="2008" y="-234">D32</text>
+</g>
+
+
+
+
+<g id="desk_33" class="desk">
+  <use href="#DeskModuleA" x="2100" y="-522" />
+  <text class="desk-label" x="2232" y="-376">A33</text>
+</g>
+
+<g id="desk_34" class="desk">
+  <use href="#DeskModuleB" x="2100" y="-522" />
+  <text class="desk-label" x="2308" y="-376">B34</text>
+</g>
+
+<g id="desk_35" class="desk">
+  <use href="#DeskModuleC" x="2100" y="-522" />
+  <text class="desk-label" x="2232" y="-234">C35</text>
+</g>
+
+<g id="desk_36" class="desk">
+  <use href="#DeskModuleD" x="2100" y="-522" />
+  <text class="desk-label" x="2308" y="-234">D36</text>
+</g>
+
+
+
+<g id="desk_37" class="desk">
+  <use href="#DeskModuleA" x="2400" y="-522" />
+  <text class="desk-label" x="2532" y="-376">A37</text>
+</g>
+
+<g id="desk_38" class="desk">
+  <use href="#DeskModuleB" x="2400" y="-522" />
+  <text class="desk-label" x="2608" y="-376">B38</text>
+</g>
+
+<g id="desk_39" class="desk">
+  <use href="#DeskModuleC" x="2400" y="-522" />
+  <text class="desk-label" x="2532" y="-234">C39</text>
+</g>
+
+<g id="desk_40" class="desk">
+  <use href="#DeskModuleD" x="2400" y="-522" />
+  <text class="desk-label" x="2608" y="-234">D40</text>
+</g>
+
+
+
+<g id="desk_41" class="desk">
+  <use href="#DeskModuleA" x="2700" y="-522" />
+  <text class="desk-label" x="2832" y="-376">A41</text>
+</g>
+
+<g id="desk_42" class="desk">
+  <use href="#DeskModuleB" x="2700" y="-522" />
+  <text class="desk-label" x="2908" y="-376">B42</text>
+</g>
+
+<g id="desk_43" class="desk">
+  <use href="#DeskModuleC" x="2700" y="-522" />
+  <text class="desk-label" x="2832" y="-234">C43</text>
+</g>
+
+<g id="desk_44" class="desk">
+  <use href="#DeskModuleD" x="2700" y="-522" />
+  <text class="desk-label" x="2908" y="-234">D44</text>
+</g>
+
+<!-- Next row of desks rotated 90 degrees -->
+
+<g id="desk_45" class="desk rotate-90">
+  <use href="#DeskModuleA" x="-80" y="-3090" />
+  <text class="desk-label" x="2948" y="56">A45</text>
+</g>
+
+<g id="desk_46" class="desk rotate-90">
+  <use href="#DeskModuleB" x="-80" y="-3090" />
+  <text class="desk-label" x="2948" y="131">B46</text>
+</g>
+
+<g id="desk_47" class="desk rotate-90">
+  <use href="#DeskModuleC" x="-80" y="-3090" />
+  <text class="desk-label" x="2806" y="56">C47</text>
+</g>
+
+<g id="desk_48" class="desk rotate-90">
+  <use href="#DeskModuleD" x="-80" y="-3090" />
+  <text class="desk-label" x="2806" y="131">D48</text>
+</g>
+
+
+
+<g id="desk_49" class="desk rotate-90">
+  <use href="#DeskModuleA" x="290" y="-3090" />
+  <text class="desk-label" x="2948" y="425">A49</text>
+</g>
+
+<g id="desk_50" class="desk rotate-90">
+  <use href="#DeskModuleB" x="290" y="-3090" />
+  <text class="desk-label" x="2948" y="501">B50</text>
+</g>
+
+<g id="desk_51" class="desk rotate-90">
+  <use href="#DeskModuleC" x="290" y="-3090" />
+  <text class="desk-label" x="2806" y="425">C51</text>
+</g>
+
+<g id="desk_52" class="desk rotate-90">
+  <use href="#DeskModuleD" x="290" y="-3090" />
+  <text class="desk-label" x="2806" y="501">D52</text>
+</g>
+
+<!-- Next row of desks normal orientation -->
+
+<g id="desk_53" class="desk">
+  <use href="#DeskModuleB" x="2700" y="648" />
+  <text class="desk-label" x="2908" y="794">D53</text>
+</g>
+
+<g id="desk_54" class="desk">
+  <use href="#DeskModuleA" x="2700" y="648" />
+  <text class="desk-label" x="2832" y="794">C54</text>
+</g>
+
+<g id="desk_55" class="desk">
+  <use href="#DeskModuleD" x="2700" y="648" />
+  <text class="desk-label" x="2908" y="935">B55</text>
+</g>
+
+<g id="desk_56" class="desk">
+  <use href="#DeskModuleC" x="2700" y="648" />
+  <text class="desk-label" x="2832" y="935">A56</text>
+</g>
+
+
+
+
+<g id="desk_57" class="desk">
+  <use href="#DeskModuleB" x="2400" y="648" />
+  <text class="desk-label" x="2608" y="794">D57</text>
+</g>
+
+<g id="desk_58" class="desk">
+  <use href="#DeskModuleA" x="2400" y="648" />
+  <text class="desk-label" x="2532" y="794">C58</text>
+</g>
+
+<g id="desk_59" class="desk">
+  <use href="#DeskModuleD" x="2400" y="648" />
+  <text class="desk-label" x="2608" y="935">B59</text>
+</g>
+
+<g id="desk_60" class="desk">
+  <use href="#DeskModuleC" x="2400" y="648" />
+  <text class="desk-label" x="2532" y="935">A60</text>
+</g>
+
+
+
+<g id="desk_61" class="desk">
+  <use href="#DeskModuleB" x="2100" y="648" />
+  <text class="desk-label" x="2308" y="794">D61</text>
+</g>
+
+<g id="desk_62" class="desk">
+  <use href="#DeskModuleA" x="2100" y="648" />
+  <text class="desk-label" x="2232" y="794">C62</text>
+</g>
+
+<g id="desk_63" class="desk">
+  <use href="#DeskModuleD" x="2100" y="648" />
+  <text class="desk-label" x="2308" y="935">B63</text>
+</g>
+
+<g id="desk_64" class="desk">
+  <use href="#DeskModuleC" x="2100" y="648" />
+  <text class="desk-label" x="2232" y="935">A64</text>
+</g>
+
+
+
+<g id="desk_65" class="desk">
+  <use href="#DeskModuleB" x="1800" y="648" />
+  <text class="desk-label" x="2008" y="794">D65</text>
+</g>
+
+<g id="desk_66" class="desk">
+  <use href="#DeskModuleA" x="1800" y="648" />
+  <text class="desk-label" x="1932" y="794">C66</text>
+</g>
+
+<g id="desk_67" class="desk">
+  <use href="#DeskModuleD" x="1800" y="648" />
+  <text class="desk-label" x="2008" y="935">B67</text>
+</g>
+
+<g id="desk_68" class="desk">
+  <use href="#DeskModuleC" x="1800" y="648" />
+  <text class="desk-label" x="1932" y="935">A68</text>
+</g>
+
+
+
+<g id="desk_69" class="desk">
+  <use href="#DeskModuleB" x="-300" y="648" />
+  <text class="desk-label" x="-92" y="794">D69</text>
+</g>
+
+<g id="desk_70" class="desk">
+  <use href="#DeskModuleA" x="-300" y="648" />
+  <text class="desk-label" x="-168" y="794">C70</text>
+</g>
+
+<g id="desk_71" class="desk">
+  <use href="#DeskModuleD" x="-300" y="648" />
+  <text class="desk-label" x="-92" y="935">B71</text>
+</g>
+
+<g id="desk_72" class="desk">
+  <use href="#DeskModuleC" x="-300" y="648" />
+  <text class="desk-label" x="-168" y="935">A72</text>
+</g>
+
+
+
+
+
+
+
      
 
 </svg>
